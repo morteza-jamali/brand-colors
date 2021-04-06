@@ -1,42 +1,55 @@
 {
-  "name": "brand-colors",
-  "version": "2.1.1",
-  "description": "A collection of branding colors of all the major companies.",
-  "homepage": "https://brand-colors.com",
-  "main": "data/brandColors.js",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:reimertz/brand-colors.git"
-  },
-  "keywords": [
-    "branding",
-    "brand colors",
-    "colors"
-  ],
-  "author": "Piérre Reimertz",
+  "version": "0.1.0",
   "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "peerDependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "brand-colors",
+  "author": "morteza-jamali",
+  "module": "dist/brand-colors.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/brand-colors.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/brand-colors.esm.js",
+      "limit": "10 KB"
+    }
+  ],
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-cached": "~1.1.1",
-    "gulp-clean": "~0.4.0",
-    "gulp-csslint": "~1.0.1",
-    "gulp-data": "^1.3.1",
-    "gulp-gh-pages": "^0.5.4",
-    "gulp-jade": "^1.1.0",
-    "gulp-live-server": "0.0.31",
-    "gulp-load-plugins": "~2.0.1",
-    "gulp-markdown": "~5.0.1",
-    "gulp-minify-css": "~1.2.4",
-    "gulp-notify": "~3.2.0",
-    "gulp-rename": "^1.4.0",
-    "gulp-sass": "^4.0.2",
-    "gulp-swig": "^0.9.1",
-    "gulp-uglify": "~3.0.2",
-    "gulp-util": "~3.0.8",
-    "lazypipe": "~1.0.2",
-    "node-fetch": "^2.6.0",
-    "opn": "~6.0.0",
-    "require-dir": "^1.2.0",
-    "sass": "~1.23.7"
+    "@size-limit/preset-small-lib": "^4.10.2",
+    "husky": "^6.0.0",
+    "size-limit": "^4.10.2",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.2.0",
+    "typescript": "^4.2.3"
   }
 }
